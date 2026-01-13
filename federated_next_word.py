@@ -19,7 +19,7 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 tf.get_logger().setLevel("ERROR")
 
 # ----------------------------------
-# 1️⃣ Define Client Datasets
+# Define Client Datasets
 # ----------------------------------
 CLIENT_TEXTS = {
     "client_1": [
@@ -43,7 +43,7 @@ CLIENT_TEXTS = {
 }
 
 # ----------------------------------
-# 2️⃣ Build Vocabulary
+# Build Vocabulary
 # ----------------------------------
 def build_vocab(client_texts):
     tokens = set()
@@ -60,7 +60,7 @@ SEQ_LEN = 3
 
 
 # ----------------------------------
-# 3️⃣ Convert text → sequences
+# Convert text → sequences
 # ----------------------------------
 def texts_to_sequences(texts, idx_map, seq_len=SEQ_LEN):
     X, y = [], []
@@ -94,7 +94,7 @@ def create_model(vocab_size=VOCAB_SIZE, embed_dim=64, lstm_units=128):
 
 
 # ----------------------------------
-# 5️⃣ Flower Client Class
+# Flower Client Class
 # ----------------------------------
 class FlowerClient(fl.client.NumPyClient):
     def __init__(self, cid, model, x_train, y_train, x_val, y_val):
@@ -129,7 +129,7 @@ class FlowerClient(fl.client.NumPyClient):
 
 
 # ----------------------------------
-# 6️⃣ Make Client Instance
+# Make Client Instance
 # ----------------------------------
 def make_client(cid):
     texts = CLIENT_TEXTS[cid].copy()
@@ -144,7 +144,7 @@ def make_client(cid):
 
 
 # ----------------------------------
-# 7️⃣ Federated Training Simulation
+# Federated Training Simulation
 # ----------------------------------
 def main():
     client_ids = list(CLIENT_TEXTS.keys())
@@ -209,4 +209,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-# ...existing code...
+
