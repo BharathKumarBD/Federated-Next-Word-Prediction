@@ -82,10 +82,4 @@ Three clients with domain-specific text:
 - Dummy input "warm-up" stabilizes predictions
 - Verbose logging disabled for clean output
 
-## Author
 
-GPT-5
-
-## License
-
-MIT
